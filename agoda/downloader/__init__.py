@@ -1,5 +1,6 @@
 import re
 from abc import ABCMeta, abstractmethod
+from urllib.parse import urlparse, ParseResult
 
 
 class URL(object):
@@ -14,16 +15,14 @@ class URL(object):
 
 
 class DownloaderIF(metaclass=ABCMeta):
-    def parse_url(self, url) -> URL:
-        pass
+    @staticmethod
+    def parse_url(url) -> URL:
+        obj: ParseResult = urlparse(url)
+        return URL(url, obj.scheme, obj.username or '', obj.password or '', obj.netloc, obj.port, obj.path)
 
     @staticmethod
     def build_filename(url) -> str:
         return re.sub(r'[:/]', '-', url)
-
-    @abstractmethod
-    def authenticate(self, url: URL) -> bool:
-        pass
 
     @abstractmethod
     def download(self, url, dest_path) -> str:

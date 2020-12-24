@@ -1,19 +1,18 @@
 import os
 import unittest
 
-from agoda.downloader.download import Download
+from agoda.downloader.http_downloader import HTTPDownloader
 
 
-class DownloadTestCase(unittest.TestCase):
+class HTTPDownloaderTestCase(unittest.TestCase):
     def setUp(self):
         self.dest_path = 'tests/data'
-        self.download = Download(self.dest_path)
+        self.downloader = HTTPDownloader()
 
     def test_download_urls(self):
         urls = ['https://www.facebook.com/favicon.ico',
-                'https://www.google.com/favicon.ico',
-                'ftp://speedtest.tele2.net/512KB.zip']
-        dest_urls = self.download.download_urls(urls)
+                'https://www.google.com/favicon.ico']
+        dest_urls = [self.downloader.download(url, self.dest_path) for url in urls]
         for url, dest in zip(urls, dest_urls):
             print("Downloading:", url)
             self.assertTrue(os.path.exists(dest))
