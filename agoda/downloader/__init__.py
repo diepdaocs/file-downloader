@@ -1,4 +1,3 @@
-import re
 from abc import ABCMeta, abstractmethod
 from urllib.parse import urlparse, ParseResult
 
@@ -18,11 +17,7 @@ class DownloaderIF(metaclass=ABCMeta):
     @staticmethod
     def parse_url(url) -> URL:
         obj: ParseResult = urlparse(url)
-        return URL(url, obj.scheme, obj.username or '', obj.password or '', obj.netloc, obj.port, obj.path)
-
-    @staticmethod
-    def build_filename(url) -> str:
-        return re.sub(r'[:/]', '-', url)
+        return URL(url, obj.scheme, obj.username or '', obj.password or '', obj.hostname, obj.port, obj.path)
 
     @abstractmethod
     def download(self, url, dest_path) -> str:

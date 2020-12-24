@@ -12,7 +12,8 @@ class DownloadTestCase(unittest.TestCase):
     def test_download_urls(self):
         urls = ['https://www.facebook.com/favicon.ico',
                 'https://www.google.com/favicon.ico',
-                'ftp://speedtest.tele2.net/512KB.zip']
+                'ftp://speedtest.tele2.net/512KB.zip',
+                'ftp://anonymous:anonymous@speedtest.tele2.net/1MB.zip']
         dest_urls = self.download.download_urls(urls)
         for url, dest in zip(urls, dest_urls):
             print("Downloading:", url)
