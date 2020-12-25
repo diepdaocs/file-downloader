@@ -8,7 +8,9 @@ Install using pip: it is best to install in a python virtual environment.
 
 ```
 cd path/to/project
+virtualenv -p python3.6 venv
 source venv/bin/activae
+
 pip install .
 ```
 
