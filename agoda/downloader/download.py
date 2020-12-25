@@ -4,7 +4,7 @@ import re
 from multiprocessing.dummy import Pool
 
 from agoda.downloader.downloader_factory import DownloaderFactory
-from agoda.downloader.exceptions import DownloadException
+from agoda.downloader.exceptions import DownloadException, UnsupportedProtocolException, MissingProtocolException
 
 
 class Download(object):
@@ -32,6 +32,8 @@ class Download(object):
             self.logger.exception(e.message)
             os.remove(dest_path)
             self.logger.info('Removed incomplete file: %s', dest_path)
+        except (UnsupportedProtocolException, MissingProtocolException) as e:
+            self.logger.exception(e.message)
 
         return dest_path
 

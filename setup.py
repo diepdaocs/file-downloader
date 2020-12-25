@@ -2,8 +2,10 @@ from setuptools import setup, find_packages
 
 setup(name='file-downloader',
       version='1.0.0',
-      description="File Downloader (HTTP, FTP)",
-      long_description=open('README.md').read(),
+      description="File Downloader",
+      long_description="""
+      File Downloader: a helper to download files from urls, support protocols: HTTP, FTP
+      """,
       packages=find_packages(exclude="tests"),
       package_data={
           'agoda': ['log/config.yaml']
