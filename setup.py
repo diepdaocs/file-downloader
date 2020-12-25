@@ -8,7 +8,7 @@ setup(name='file-downloader',
       """,
       packages=find_packages(exclude="tests"),
       package_data={
-          'agoda': ['log/config.yaml']
+          'agoda': ['log/config.yaml', 'config/config.yaml']
       },
       install_requires=[
           'requests==2.25.1',
