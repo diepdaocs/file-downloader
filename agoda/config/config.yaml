@@ -1,0 +1,2 @@
+downloader:
+  chunk_size: 8192
