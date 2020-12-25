@@ -58,6 +58,8 @@ The core package `agoda.downloader` is implemented using the factory design patt
 The `DownloaderIF` is the main interface, which makes the code extendable by implementing downloader for different protocols: `FTPDownloader`, `HTTPDownloader`, `SFTPDownloader`,...
 After implementing a new downloader (e.g `SFTPDownloader`), we will add it to the `DownloaderFactory`.
 
+Handled exceptions are listed in `agoda.downloader.exceptions` package.
+
 
 # Development
 Install virtual environment:
