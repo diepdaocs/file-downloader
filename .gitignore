@@ -2,3 +2,5 @@ venv
 *.iml
 *.xml
 tests/data
+*.log
+file_downloader.egg-info
