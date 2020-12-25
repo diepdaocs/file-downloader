@@ -24,6 +24,18 @@ class FTPDownloaderTestCase(unittest.TestCase):
             self.assertTrue(os.path.exists(dest))
             print("-> Passed:", dest)
 
+    @unittest.skip('File is too big so it should be tested and monitored manually')
+    def test_download_large_file(self):
+        urls = [
+            'ftp://speedtest.tele2.net/1GB.zip',
+            'ftp://anonymous:anonymous@speedtest.tele2.net/10GB.zip'
+        ]
+        dest_urls = [self.downloader.download(url, self._build_dest_path(url)) for url in urls]
+        for url, dest in zip(urls, dest_urls):
+            print("Downloading:", url)
+            self.assertTrue(os.path.exists(dest))
+            print("-> Passed:", dest)
+
 
 if __name__ == '__main__':
     unittest.main()

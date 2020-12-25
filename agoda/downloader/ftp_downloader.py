@@ -1,10 +1,14 @@
 import ftplib
 from contextlib import closing
 
+from agoda.config.config import Config
 from agoda.downloader import DownloaderIF, URL
 
 
 class FTPDownloader(DownloaderIF):
+    def __init__(self):
+        self.configs = Config()
+
     def download(self, url, dest_path):
         obj: URL = self.parse_url(url)
         with closing(ftplib.FTP()) as ftp:
@@ -16,6 +20,7 @@ class FTPDownloader(DownloaderIF):
                 ftp.cwd(obj.path)
             server_file_name = parts[-1]
             with open(dest_path, 'wb') as dest_file:
-                ftp.retrbinary("RETR " + server_file_name, dest_file.write)
+                ftp.retrbinary("RETR " + server_file_name, dest_file.write,
+                               blocksize=self.configs.get('downloader')['chunk_size'])
 
         return dest_path
