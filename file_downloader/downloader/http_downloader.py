@@ -1,7 +1,7 @@
 import requests
 
-from agoda.config.config import Config
-from agoda.downloader import DownloaderIF, URL
+from file_downloader.config.config import Config
+from file_downloader.downloader import DownloaderIF, URL
 
 
 class HTTPDownloader(DownloaderIF):

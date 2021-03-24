@@ -3,8 +3,8 @@ import os
 
 import click
 
-from agoda.downloader.download import Download
-from agoda.log.log import setup_logging
+from file_downloader.downloader.download import Download
+from file_downloader.log.log import setup_logging
 
 
 @click.command('file-downloader',

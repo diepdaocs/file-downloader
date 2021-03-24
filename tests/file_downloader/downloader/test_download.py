@@ -1,7 +1,7 @@
 import os
 import unittest
 
-from agoda.downloader.download import Download
+from file_downloader.downloader.download import Download
 
 
 class DownloadTestCase(unittest.TestCase):

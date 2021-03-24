@@ -3,8 +3,8 @@ import os
 import re
 from multiprocessing.dummy import Pool
 
-from agoda.downloader.downloader_factory import DownloaderFactory
-from agoda.downloader.exceptions import DownloadException, UnsupportedProtocolException, MissingProtocolException
+from file_downloader.downloader.downloader_factory import DownloaderFactory
+from file_downloader.downloader.exceptions import DownloadException, UnsupportedProtocolException, MissingProtocolException
 
 
 class Download(object):

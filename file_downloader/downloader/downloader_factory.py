@@ -1,7 +1,7 @@
-from agoda.downloader import DownloaderIF
-from agoda.downloader.exceptions import UnsupportedProtocolException, MissingProtocolException
-from agoda.downloader.ftp_downloader import FTPDownloader
-from agoda.downloader.http_downloader import HTTPDownloader
+from file_downloader.downloader import DownloaderIF
+from file_downloader.downloader.exceptions import UnsupportedProtocolException, MissingProtocolException
+from file_downloader.downloader.ftp_downloader import FTPDownloader
+from file_downloader.downloader.http_downloader import HTTPDownloader
 
 
 class DownloaderFactory(object):

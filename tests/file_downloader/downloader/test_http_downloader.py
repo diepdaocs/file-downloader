@@ -1,8 +1,8 @@
 import os
 import unittest
 
-from agoda.downloader.download import Download
-from agoda.downloader.http_downloader import HTTPDownloader
+from file_downloader.downloader.download import Download
+from file_downloader.downloader.http_downloader import HTTPDownloader
 
 
 class HTTPDownloaderTestCase(unittest.TestCase):

@@ -8,7 +8,7 @@ setup(name='file-downloader',
       """,
       packages=find_packages(exclude="tests"),
       package_data={
-          'agoda': ['log/config.yaml', 'config/config.yaml']
+          'file_downloader': ['log/config.yaml', 'config/config.yaml']
       },
       install_requires=[
           'requests==2.25.1',
@@ -17,7 +17,7 @@ setup(name='file-downloader',
       ],
       entry_points='''
         [console_scripts]
-        download=agoda.cli.download:file_downloader
+        download=file_downloader.cli.download:file_downloader
     ''',
       classifiers=[
           "Programming Language :: Python :: 3",

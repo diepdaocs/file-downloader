@@ -1,7 +1,7 @@
 from abc import ABCMeta, abstractmethod
 from urllib.parse import urlparse, ParseResult
 
-from agoda.downloader.exceptions import DownloadException
+from file_downloader.downloader.exceptions import DownloadException
 
 
 class URL(object):

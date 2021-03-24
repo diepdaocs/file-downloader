@@ -1,8 +1,8 @@
 import os
 import unittest
 
-from agoda.downloader.download import Download
-from agoda.downloader.ftp_downloader import FTPDownloader
+from file_downloader.downloader.download import Download
+from file_downloader.downloader.ftp_downloader import FTPDownloader
 
 
 class FTPDownloaderTestCase(unittest.TestCase):

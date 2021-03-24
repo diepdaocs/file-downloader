@@ -42,11 +42,11 @@ download -s sample_source.txt -d tests/data
 
 # Overview
 Main packages:
-- `agoda.downloader`: the core package.
-- `agoda.log`: to support logging.
-- `agoda.cli`: to support command line.
-- `agoda.config`: to manage configuration (Singleton Class).
-- `agoda.common`: common libraries.
+- `file_downloader.downloader`: the core package.
+- `file_downloader.log`: to support logging.
+- `file_downloader.cli`: to support command line.
+- `file_downloader.config`: to manage configuration (Singleton Class).
+- `file_downloader.common`: common libraries.
 
 The main entry is the `Download` class which will prepare the urls (source) to be downloaded, file paths (destination) to be saved to, parallel processing and exception handling.
 ```
@@ -67,7 +67,7 @@ def download_urls(self, urls, refresh=False):
 ...
 
 ```
-The core package `agoda.downloader` is implemented using the factory design pattern, the `DownloaderFactory` will decide which downloader (`FTPDownloader`, `HTTPDownloader`,...) to use, depending on the url's protocol. 
+The core package `file_downloader.downloader` is implemented using the factory design pattern, the `DownloaderFactory` will decide which downloader (`FTPDownloader`, `HTTPDownloader`,...) to use, depending on the url's protocol. 
 ```
 class DownloaderFactory(object):
 ...
@@ -99,7 +99,7 @@ class HTTPDownloader(HTTPDownloader)
 
 ```
 
-Handled exceptions are listed in `agoda.downloader.exceptions` package.
+Handled exceptions are listed in `file_downloader.downloader.exceptions` package.
 ```
 ...
 class UnsupportedProtocolException(Exception):

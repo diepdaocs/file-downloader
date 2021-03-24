@@ -2,7 +2,7 @@ import os
 
 import yaml
 
-from agoda.common.singleton import Singleton
+from file_downloader.common.singleton import Singleton
 
 
 class Config(object, metaclass=Singleton):
