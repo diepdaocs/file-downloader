@@ -8,3 +8,5 @@ file_downloader.egg-info
 .vscode
 __pycache__
 .gitignore
+.env*
+.gitignore
