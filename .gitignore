@@ -4,3 +4,7 @@ venv
 tests/data
 *.log
 file_downloader.egg-info
+
+.vscode
+__pycache__
+.gitignore
