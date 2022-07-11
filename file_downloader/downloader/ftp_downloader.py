@@ -6,8 +6,8 @@ from file_downloader.downloader import DownloaderIF, URL
 
 
 class FTPDownloader(DownloaderIF):
-    def __init__(self):
-        self.configs = Config()
+    def __init__(self, config=None):
+        self.configs = config or Config()
 
     def download(self, url, dest_path):
         obj: URL = self.parse_url(url)

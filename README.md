@@ -130,9 +130,28 @@ Config IDE (e.g PyCharm) to use the virtual environment `venv`: Go to File > Set
 # Test
 Run unit tests in `tests/` folder:
 
+```bash
+# To run all tests
+python -m unittest discover -p *test*.py -v
+
+# To run only unit tests
+python -m unittest discover -p test*.py -v
+
+# To run only integration tests
+python -m unittest discover -p integration_test*.py -v
 ```
-python -m unittest
+
+Test coverage: just replace the initial “python” with “coverage run”
+```bash
+coverage run -m unittest discover -p *test*.py -v
+
+# To show report on console
+coverage report -m
+
+# To show report on Web UI
+coverage html
 ```
+Then open htmlcov/index.html in your browser, to see a report like [this](https://nedbatchelder.com/files/sample_coverage_html/index.html).
 
 # Contributors
 - Diep Dao (diepdaocs@gmail.com)

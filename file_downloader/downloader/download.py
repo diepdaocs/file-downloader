@@ -4,13 +4,14 @@ import re
 from multiprocessing.dummy import Pool
 
 from file_downloader.downloader.downloader_factory import DownloaderFactory
-from file_downloader.downloader.exceptions import DownloadException, UnsupportedProtocolException, MissingProtocolException
+from file_downloader.downloader.exceptions import DownloadException, UnsupportedProtocolException, \
+    MissingProtocolException
 
 
 class Download(object):
-    def __init__(self, dest_path):
+    def __init__(self, dest_path, downloader_factory=None):
         self.dest_path = dest_path
-        self.downloader_factory = DownloaderFactory()
+        self.downloader_factory = downloader_factory or DownloaderFactory()
         self.logger = logging.getLogger(self.__class__.__name__)
 
     @staticmethod
@@ -43,4 +44,5 @@ class Download(object):
     def download_urls(self, urls, refresh=False):
         pool = Pool()
         results = pool.map(self.download_wrapper, [(url, refresh) for url in urls])
+        pool.close()
         return results

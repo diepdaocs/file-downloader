@@ -5,8 +5,8 @@ from file_downloader.downloader import DownloaderIF, URL
 
 
 class HTTPDownloader(DownloaderIF):
-    def __init__(self):
-        self.configs = Config()
+    def __init__(self, config=None):
+        self.configs = config or Config()
 
     def authenticate(self, url: URL) -> bool:
         pass
